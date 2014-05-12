@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UserInfoModel.h"
 
 @implementation AppDelegate
 
@@ -15,8 +16,45 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    //缓存文件夹
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cacheDirectory = [paths objectAtIndex:0];
+    NSString *fullCacheDirectory = [cacheDirectory stringByAppendingPathComponent:@"OfflineCache"];
+    //创建可缓存的模型
+    UserInfoModel *userInfo = [[UserInfoModel alloc] init];
+    userInfo.name = @"huanglonguui";
+    userInfo.phoneNumber = @"1234567890";
+    userInfo.address = @"fujian Province";
+    //归档到文件  需要遵守NSCoding协议
+    BOOL archive = [NSKeyedArchiver archiveRootObject:userInfo toFile:fullCacheDirectory];
+    //取修改时间
+    NSTimeInterval modifyTime = [[[[NSFileManager defaultManager] attributesOfItemAtPath:fullCacheDirectory error:nil] fileModificationDate] timeIntervalSinceNow];
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:modifyTime];
+    
+    NSLog(@"%@", date);
+    
+    if (archive) {
+        //反归档
+        id userInfoFromfile = [NSKeyedUnarchiver unarchiveObjectWithFile:fullCacheDirectory];
+        NSLog(@"%@", [userInfoFromfile name]);
+    }
+    
+    NSLog(@"verison:%@", [AppDelegate appVersion]);
+    
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+//从plist取到版本号
++ (NSString *)appVersion{
+    
+    CFStringRef versStr = (CFStringRef)CFBundleGetValueForInfoDictionaryKey(CFBundleGetMainBundle(), kCFBundleVersionKey);
+    
+    NSString *version = [NSString stringWithUTF8String:CFStringGetCStringPtr(versStr, kCFStringEncodingMacRoman)];
+    
+    return version;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

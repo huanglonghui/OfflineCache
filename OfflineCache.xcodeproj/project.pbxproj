@@ -19,6 +19,7 @@
 		2C58DBB4192113EE0002FC64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C58DB9C192113EE0002FC64 /* UIKit.framework */; };
 		2C58DBBC192113EE0002FC64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C58DBBA192113EE0002FC64 /* InfoPlist.strings */; };
 		2C58DBBE192113EE0002FC64 /* OfflineCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C58DBBD192113EE0002FC64 /* OfflineCacheTests.m */; };
+		2C58DBC9192116CE0002FC64 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C58DBC8192116CE0002FC64 /* UserInfoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		2C58DBB9192113EE0002FC64 /* OfflineCacheTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OfflineCacheTests-Info.plist"; sourceTree = "<group>"; };
 		2C58DBBB192113EE0002FC64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C58DBBD192113EE0002FC64 /* OfflineCacheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfflineCacheTests.m; sourceTree = "<group>"; };
+		2C58DBC7192116CE0002FC64 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		2C58DBC8192116CE0002FC64 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 			children = (
 				2C58DBA7192113EE0002FC64 /* AppDelegate.h */,
 				2C58DBA8192113EE0002FC64 /* AppDelegate.m */,
+				2C58DBC7192116CE0002FC64 /* UserInfoModel.h */,
+				2C58DBC8192116CE0002FC64 /* UserInfoModel.m */,
 				2C58DBAA192113EE0002FC64 /* Images.xcassets */,
 				2C58DB9F192113EE0002FC64 /* Supporting Files */,
 			);
@@ -241,6 +246,7 @@
 			files = (
 				2C58DBA9192113EE0002FC64 /* AppDelegate.m in Sources */,
 				2C58DBA5192113EE0002FC64 /* main.m in Sources */,
+				2C58DBC9192116CE0002FC64 /* UserInfoModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
